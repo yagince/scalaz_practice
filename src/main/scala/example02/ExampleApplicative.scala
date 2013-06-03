@@ -20,7 +20,9 @@ object ExampleApplicative extends App {
   def double(i:Int) = i * 2
 
   val i = (1.some <*> (double _).some)
-  println(i)
+  println("i : " + i)
+  val j = ((double _).some <*> ((f:Int => Int) => f(1)).some)
+  println("j : " + j)
   val value: Option[Int] = None
   println(value <*> (double _).some)
 
